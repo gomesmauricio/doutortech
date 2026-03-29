@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Doutor Tech - Assistência técnica premium em notebooks em Recife.">
+<title>Doutor Tech | Premium</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#050816;
+  --card:#0c122b;
+  --primary:#00e0ff; /* neon azul da logo */
+  --secondary:#1a2a5a;
+  --accent:#f5b841; /* dourado da logo */
+  --glow:#00e0ff;
+  --text:#ffffff;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+body{background:var(--bg);color:var(--text)}
+
+header{display:flex;justify-content:space-between;align-items:center;padding:15px 60px;position:fixed;width:100%;top:0;background:rgba(0,0,0,0.6);backdrop-filter:blur(10px);z-index:10}
+header img{height:100px;margin-left:20px;filter: drop-shadow(0 0 10px var(--glow));}
+nav a{color:white;margin-left:20px;text-decoration:none}
+
+.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px}
+.hero h2{font-size:3rem;margin-bottom:20px}
+.btn{background:linear-gradient(45deg,var(--primary),var(--accent));padding:15px 30px;border-radius:10px;color:black;font-weight:700;text-decoration:none}
+
+.section{padding:100px 20px;max-width:1200px;margin:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px}
+.card{background:var(--card);padding:25px;border-radius:15px}
+
+/* CARROSSEL */
+.carousel{position:relative;overflow:hidden;border-radius:15px}
+.carousel-track{display:flex;transition:0.5s}
+.carousel img{width:100%;height:600px;object-fit:cover; flex:0 0 100%}
+.carousel-buttons{position:absolute;top:50%;width:100%;display:flex;justify-content:space-between}
+.carousel-buttons button{background:rgba(0,0,0,0.5);color:white;border:none;padding:10px;cursor:pointer}
+
+.whatsapp{position:fixed;bottom:20px;right:20px;background:#25d366;width:60px;height:60px;display:flex;justify-content:center;align-items:center;border-radius:50%}
+</style>
+</head>
+<body>
+
+<header>
+  <!-- LOGO AQUI -->
+  <img src="Logo 2.png" alt="Doutor Tech Logo">
+  <nav>
+    <a href="#servicos">Serviços</a>
+    <a href="#contato">Contato</a>
+  </nav>
+</header>
+
+
+
+<section class="hero" style="margin-top:-40px">
+  <h2>Seu notebook com problema? A Doutor Tech resolve!</h2>
+  <a class="btn" href="https://wa.me/5581986683557">Fale no WhatsApp</a>
+</section>
+
+<!-- CARROSSEL -->
+<section class="section">
+  <h2 style="text-align:center;margin-bottom:30px">Nossos Serviços</h2>
+  <div class="carousel">
+    <div class="carousel-track" id="track">
+      <img src="Carrocel1.png" />
+      <img src="Carrocel2.png" />
+      <img src="Carrocel3.png" />
+      <img src="Carrocel4.png" />
+      <img src="Carrocel5.png" />
+    </div>
+    <div class="carousel-buttons">
+      <button onclick="moveSlide(-1)">◀</button>
+      <button onclick="moveSlide(1)">▶</button>
+    </div>
+  </div>
+</section>
+
+<section id="servicos" class="section">
+  <h2 style="text-align:center;margin-bottom:30px">Serviços Mais Procurados</h2>
+  <div class="grid">
+
+    <div class="card">
+      <h3>Formatação Completa</h3>
+      <p>Instalação limpa do sistema, drivers atualizados e otimização total para máximo desempenho.</p>
+      <p style="margin-top:10px">⏱ Até 24h</p>
+      <p style="color:var(--accent);font-weight:700">💰 A partir de R$80</p>
+    </div>
+
+    <div class="card">
+      <h3>Troca de Tela</h3>
+      <p>Substituição por tela nova com testes completos de imagem, brilho e funcionamento.</p>
+      <p style="margin-top:10px">⏱ 24 a 48h</p>
+      <p>🛡 Garantia de 90 dias</p>
+      <p style="color:var(--accent);font-weight:700">💰 A partir de R$250</p>
+    </div>
+
+    <div class="card" style="border:1px solid var(--primary);box-shadow:0 0 15px rgba(0,224,255,0.3)">
+      <h3>Upgrade SSD (Mais Vendido)</h3>
+      <p>Transforme seu notebook lento em rápido com SSD. Até 5x mais desempenho.</p>
+      <p style="margin-top:10px">⏱ Mesmo dia</p>
+      <p>🛡 Garantia de 90 dias</p>
+      <p style="color:var(--accent);font-weight:700">💰 A partir de R$199</p>
+    </div>
+
+    <div class="card">
+      <h3>Reparo de Placa-Mãe</h3>
+      <p>Diagnóstico eletrônico avançado e reparo técnico para recuperar o funcionamento.</p>
+      <p style="margin-top:10px">⏱ 2 a 5 dias</p>
+      <p>🛡 Garantia de 90 dias</p>
+      <p style="color:var(--accent);font-weight:700">💰 Sob orçamento</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="contato" class="section">
+  <h2>Contato</h2>
+  <form onsubmit="sendWhats(event)" style="max-width:500px;margin:30px auto;background:var(--card);padding:25px;border-radius:15px;border:1px solid rgba(0,224,255,0.2)">
+    <input id="nome" placeholder="Nome" required style="width:100%;padding:12px;margin-top:10px;border-radius:8px;border:none;background:#0a0f22;color:white">
+    <input id="telefone" placeholder="Telefone" required style="width:100%;padding:12px;margin-top:10px;border-radius:8px;border:none;background:#0a0f22;color:white">
+    <textarea id="problema" placeholder="Descreva o problema" style="width:100%;padding:12px;margin-top:10px;border-radius:8px;border:none;background:#0a0f22;color:white"></textarea>
+    <button type="submit" style="margin-top:15px;width:100%;padding:12px;background:linear-gradient(45deg,var(--primary),var(--accent));border:none;border-radius:10px;font-weight:700;cursor:pointer">Enviar pelo WhatsApp</button>
+  </form>
+</section>
+
+<a class="whatsapp" href="https://wa.me/5581986683557">💬</a>
+
+<script>
+let index=0;
+function moveSlide(dir){
+  const track=document.getElementById('track');
+  const total=track.children.length;
+  index=(index+dir+total)%total;
+  track.style.transform=`translateX(-${index*100}%)`;
+}
+
+function sendWhats(e){
+  e.preventDefault();
+  const nome=document.getElementById('nome').value;
+  const tel=document.getElementById('telefone').value;
+  const prob=document.getElementById('problema').value;
+  const msg=`Olá, sou ${nome}%0ATel:${tel}%0AProblema:${prob}`;
+  window.open(`https://wa.me/5581986683557?text=${msg}`);
+}
+
+function startAutoSlide(){
+  autoSlideInterval = setInterval(()=>{
+    moveSlide(1);
+  }, 3000); // troca a cada 3 segundos
+}
+
+function stopAutoSlide(){
+  clearInterval(autoSlideInterval);
+}
+
+// iniciar automático
+startAutoSlide();
+
+// pausar quando usuário interagir
+const carousel = document.querySelector('.carousel');
+carousel.addEventListener('mouseenter', stopAutoSlide);
+carousel.addEventListener('mouseleave', startAutoSlide);
+
+</script>
+
+</body>
+</html>
